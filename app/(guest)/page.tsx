@@ -1,3 +1,5 @@
+import Footer from "@/components/footer";
+import SearchComponent from "@/components/search-component";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
@@ -8,7 +10,9 @@ export default function Home() {
    <main className="sm:container">
 
 {/* Search form */}
-{/* <SearchComponent /> */}
+<div className='mx-2 flex flex-col items-center justify-center'>
+<SearchComponent />
+</div>
 
 <h3 className="text-2xl sm:text-4xl font-bold text-slate-500 pt-16 pb-16 text-center uppercase tracking-wide">
   There is always a spot available.
@@ -69,9 +73,9 @@ export default function Home() {
   <div className="pt-16 w-full absolute left-0 sm:bg-map bg-cover bg-no-repeat bg-center bg-blue-600 bg-opacity-25 
   bg-blend-overlay">
     <div className="grid grid-cols-1 sm:grid-cols-2 container pb-16 place-items-center sm:place-items-start">
-      <div className="flex flex-col text-zinc-600 text-center sm:text-left">
-        <p className="text-3xl sm:text-4xl font-bold">Fully responsive</p>
-        <p className="text-md sm:text-lg pt-2 tracking-tight">It feels just like a mobile app.</p>
+      <div className="flex flex-col mx-2 md:mx-6 text-zinc-600 text-center sm:text-left">
+        <p className="text-3xl sm:text-4xl font-bold">Save yourself the stress</p>
+        <p className="text-md sm:text-lg pt-2 tracking-tight">Take care of your parking ahead of time.</p>
       </div>
 
       <div className="pt-8 sm:pt-0">
@@ -80,7 +84,7 @@ export default function Home() {
       </div>
     </div>
 
-    {/* <Footer /> */}
+    <Footer />
   </div>
 </section>
 </main>
