@@ -8,6 +8,7 @@ import DesktopSidebar from './desktop-sidebar';
 
 function SidebarLayout({children}:{children:React.ReactNode}) {
     const [open, setOpen] = useState(false);
+    //const apiKey="AIzaSyDir8wOA5J2CC8LeohSf4l2PSIFeIcXmzo"
   return (
     <div className='flex flex-col h-screen'>
         <div className="flex w-full bg-blue-500 h-12 lg:hidden p-2 text-white items-center">
