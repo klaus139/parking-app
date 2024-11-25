@@ -14,6 +14,7 @@ import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import SpotAddress from './spot-address';
 import NumberOfSpots from './number-of-spots';
+import Pricing from './pricing';
 
   const totalSteps= 4;
   const stepIncrement = 100/totalSteps;
@@ -85,7 +86,8 @@ function AddLocationDialog({id=null, open, setOpen}:Props) {
     <Progress value={step * stepIncrement} />
     {{
         1:<SpotAddress onNext={handleNextStepChange}/>,
-        2:<NumberOfSpots onNext={handleNextStepChange} onPrev={handlePrevStepChange} />
+        2:<NumberOfSpots onNext={handleNextStepChange} onPrev={handlePrevStepChange} />,
+        3:<Pricing onNext={handleNextStepChange} onPrev={handlePrevStepChange} />
     }[step]}
    </div>
     </DialogHeader>

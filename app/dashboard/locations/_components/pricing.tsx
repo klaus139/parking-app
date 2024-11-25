@@ -15,43 +15,43 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
 const FormSchema = z.object({
-  NumberOfSpots: z.coerce
+    hourly: z.coerce
     .number({ invalid_type_error: "must be a number" })
     .positive({ message: "Value must be positive" })
     .finite({ message: "must be a valid number" }),
 });
 
-type NumberOfSpotsInput = z.infer<typeof FormSchema>;
+type PricingInput = z.infer<typeof FormSchema>;
 
-function NumberOfSpots({ onNext, onPrev }: ListPostPropsType) {
+function Pricing({ onNext, onPrev }: ListPostPropsType) {
   const mySpotStore = useMySpotStore();
 
-  const form = useForm<NumberOfSpotsInput>({
+  const form = useForm<PricingInput>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
-      NumberOfSpots: mySpotStore.data.numberOfSpots,
+      hourly: mySpotStore.data.price?.hourly,
     },
   });
 
-  const onSubmit = (data: NumberOfSpotsInput) => {
+  const onSubmit = (data: PricingInput) => {
     mySpotStore.updateState({
-      numberOfSpots: data.NumberOfSpots,
+      price: {...data},
     });
   };
 
   return (
     <div className="grid w-full gap-1 5">
-      <h2 className="text-xl sm:text-2xl py-4">Number of parking spots</h2>
+      <h2 className="text-xl sm:text-2xl py-4">Pricing</h2>
 
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
           <FormField
             control={form.control}
-            name="NumberOfSpots"
+            name="hourly"
             render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <Input {...field} placeholder="e.g. 3" />
+                  <Input {...field} placeholder="e.g. 10" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -76,4 +76,4 @@ function NumberOfSpots({ onNext, onPrev }: ListPostPropsType) {
   );
 }
 
-export default NumberOfSpots;
+export default Pricing;
